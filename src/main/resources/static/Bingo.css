@@ -1,0 +1,63 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan. 5, 2024, 1:59:27 p.m.
+    Author     : joe_d
+*/
+
+:root {
+    --border: 1px solid #000;
+    --width: 500px;
+    --bg: #446444;
+    --hugeText: 60px;
+    --bigText: 42px;
+    --smallText: 32px;
+    --white: #fff;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    background-color: #f0f6f0; 
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    
+}
+
+button {
+    float: left;
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 70px;
+    display: block;
+    margin: 3px;
+    padding: 1em 2em;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: white;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.btnEnabled { color: #000077; background: #aaaaff; }
+.btnDisabled {color: #444; background: #aaa;}
+button.btnEnabled:hover {background-color: #666; color: #000077;}
+
+.message {width: 100%; font-size: 28px; font-weight: 600; float: left; margin-top: 30px;  margin-bottom: 20px; min-height: 40px}
+
+.clear { width: 100%; clear: both; min-height: 30px; }
+.card { float: left; width: var(--width); height: auto; background-color: var(--bg); border-radius: 10px; padding: 10px; }
+.headers > div { float: left; width: 100px; text-align: center; }
+.headers > div span { font-size: var(--bigText); color: var(--white); font-weight: bold; }
+.column { float: left; width: 100px; text-align: center; }
+.unselectedNumber { padding: 20px 0; border: var(--border); background-color: var(--white); color: #000; cursor: cell; font-size: var(--smallText);}
+.freeSpace { padding: 20px 0; border: var(--border); background-color: var(--white); color: #000; cursor: cell; font-size: var(--smallText);}
+div.unselectedNumber:hover { background-color: #f6f6ff; color: #000077; }
+.selectedNumber { padding: 20px 0; border: var(--border); background-color: #aaaaff; color: #000; cursor: cell; font-size: var(--smallText);}
+
+

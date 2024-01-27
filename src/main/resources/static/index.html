@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Springboot Application Home Page (v2)</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    	<script src="hello.js"></script>
+        <link rel="stylesheet" href="Bingo.css">
+   </head>
+    <body ng-app="spicyApp1">
+        <div><h1>Bingo!</h1></div>
+        <p>&nbsp;</p>
+        <div ng-controller="Player">
+            <button class="{{setButtonClass(1)}}" ng-click="startGame()">Start Game</button>
+            <button class="{{setButtonClass(2)}}" ng-click="generate()">Generate Card</button>
+            <button class="{{setButtonClass(3)}}" ng-click="callNumber()">Next Number</button>
+            <button class="{{setButtonClass(4)}}" ng-click="quit()">Quit</button>
+            <button class="{{setButtonClass(5)}}" ng-click="bingo()">Bingo</button>
+            <p>&nbsp;</p>
+            <!--
+            <p>The Bingo Card is {{bingoCard.bingoCard}}</p>
+            <p>First number is {{bingoCard.cardNumbers[0]}}</p>
+            -->
+            <div class="message">{{message}}</div>      
+ 
+            <div class="clear"></div>
+            <div class="card">
+                <div class="headers">
+                    <div><span>B</span></div>
+                    <div><span>I</span></div>
+                    <div><span>N</span></div>
+                    <div><span>G</span></div>
+                    <div><span>O</span></div>
+                </div>
+                <div class="column 1">
+                    <div class="{{setNumberClass(0)}}" id='cell-0' ng-click='markNumber("0")'>{{bingoCard.cardNumbers[0]}}</div>
+                    <div class="{{setNumberClass(1)}}" id='cell-1' ng-click='markNumber("1")'>{{bingoCard.cardNumbers[1]}}</div>
+                    <div class="{{setNumberClass(2)}}" id='cell-2' ng-click='markNumber("2")'>{{bingoCard.cardNumbers[2]}}</div>
+                    <div class="{{setNumberClass(3)}}" id='cell-3' ng-click='markNumber("3")'>{{bingoCard.cardNumbers[3]}}</div>
+                    <div class="{{setNumberClass(4)}}" id='cell-4' ng-click='markNumber("4")'>{{bingoCard.cardNumbers[4]}}</div>
+                </div>
+                <div class="playarea column 2">
+                    <div class="{{setNumberClass(5)}}" id='cell-5' ng-click='markNumber("5")'>{{bingoCard.cardNumbers[5]}}</div>
+                    <div class="{{setNumberClass(6)}}" id='cell-6' ng-click='markNumber("6")'>{{bingoCard.cardNumbers[6]}}</div>
+                    <div class="{{setNumberClass(7)}}" id='cell-7' ng-click='markNumber("7")'>{{bingoCard.cardNumbers[7]}}</div>
+                    <div class="{{setNumberClass(8)}}" id='cell-8' ng-click='markNumber("8")'>{{bingoCard.cardNumbers[8]}}</div>
+                    <div class="{{setNumberClass(9)}}" id='cell-9' ng-click='markNumber("9")'>{{bingoCard.cardNumbers[9]}}</div>
+               </div>
+                <div class="playarea column 3">
+                    <div class="{{setNumberClass(10)}}" id='cell-10' ng-click='markNumber("10")'>{{bingoCard.cardNumbers[10]}}</div>
+                    <div class="{{setNumberClass(11)}}" id='cell-11' ng-click='markNumber("11")'>{{bingoCard.cardNumbers[11]}}</div>
+                    <div class="freeSpace" id='cell-12'>Free</div>
+                    <div class="{{setNumberClass(13)}}" id='cell-13' ng-click='markNumber("13")'>{{bingoCard.cardNumbers[13]}}</div>
+                    <div class="{{setNumberClass(14)}}" id='cell-14' ng-click='markNumber("14")'>{{bingoCard.cardNumbers[14]}}</div>
+                </div>
+                <div class="playarea column 4">
+                    <div class="{{setNumberClass(15)}}" id='cell-15' ng-click='markNumber("15")'>{{bingoCard.cardNumbers[15]}}</div>
+                    <div class="{{setNumberClass(16)}}" id='cell-16' ng-click='markNumber("16")'>{{bingoCard.cardNumbers[16]}}</div>
+                    <div class="{{setNumberClass(17)}}" id='cell-17' ng-click='markNumber("17")'>{{bingoCard.cardNumbers[17]}}</div>
+                    <div class="{{setNumberClass(18)}}" id='cell-18' ng-click='markNumber("18")'>{{bingoCard.cardNumbers[18]}}</div>
+                    <div class="{{setNumberClass(19)}}" id='cell-19' ng-click='markNumber("19")'>{{bingoCard.cardNumbers[19]}}</div>
+               </div>
+                <div class="playarea column 5">
+                    <div class="{{setNumberClass(20)}}" id='cell-20' ng-click='markNumber("20")'>{{bingoCard.cardNumbers[20]}}</div>
+                    <div class="{{setNumberClass(21)}}" id='cell-21' ng-click='markNumber("21")'>{{bingoCard.cardNumbers[21]}}</div>
+                    <div class="{{setNumberClass(22)}}" id='cell-22' ng-click='markNumber("22")'>{{bingoCard.cardNumbers[22]}}</div>
+                    <div class="{{setNumberClass(23)}}" id='cell-23' ng-click='markNumber("23")'>{{bingoCard.cardNumbers[23]}}</div>
+                    <div class="{{setNumberClass(24)}}" id='cell-24' ng-click='markNumber("24")'>{{bingoCard.cardNumbers[24]}}</div>
+                </div>
+            </div>
+            <div class="temp"></div>
+        </div>
+    </body>
+</html>
