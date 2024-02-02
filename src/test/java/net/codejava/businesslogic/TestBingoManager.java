@@ -322,6 +322,84 @@ public class TestBingoManager {
         }
     }
 
+    @Test
+    // Tests you need the called numbers to match the marked line. 
+    public void testInValidateBingoMissedCall() {
+        BingoGameManager manager = new BingoGameManager();
+        try {
+            BingoCard card = manager.generateCard();
+                int[] numbers = card.getCardNumbers();
+            String s = String.format("%d,%d,%d,%d,%d", numbers[0],numbers[1],numbers[2],numbers[3],numbers[10]);
+            
+            // Start the game and call those numbers
+            manager.startGame();
+            manager.setNumberSequence(s);
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            
+            // Mark the line on the card
+            boolean[] markedNumbers = card.getMarkedNumbers();
+            markedNumbers[0] = true;
+            markedNumbers[1] = true;
+            markedNumbers[2] = true;
+            markedNumbers[3] = true;
+            markedNumbers[4] = true;
+            assertFalse(manager.validateBingo(card), "Should not have Bingo without called number");
+        }
+        catch (Exception ex)  {
+            assertTrue(false, "Unexpected exception thrown");
+        }
+    }
+
+    @Test
+    // Tests you need to mark the line and not just the called numbers. 
+    public void testInValidateBingoMissedMark() {
+        BingoGameManager manager = new BingoGameManager();
+        try {
+            BingoCard card = manager.generateCard();
+                int[] numbers = card.getCardNumbers();
+            String s = String.format("%d,%d,%d,%d,%d", numbers[0],numbers[1],numbers[2],numbers[3],numbers[5]);
+            
+            // Start the game and call those numbers
+            manager.startGame();
+            manager.setNumberSequence(s);
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            manager.generateNumber();
+            
+            // Mark the line on the card
+            boolean[] markedNumbers = card.getMarkedNumbers();
+            markedNumbers[0] = true;
+            markedNumbers[1] = true;
+            markedNumbers[2] = true;
+            markedNumbers[3] = true;
+            markedNumbers[14] = true;
+            assertFalse(manager.validateBingo(card), "Should not have Bingo without marked line");
+        }
+        catch (Exception ex)  {
+            assertTrue(false, "Unexpected exception thrown");
+        }
+    }
+
+    @Test
+    // Tests you need to mark the line and not just the called numbers. 
+    public void testInValidateBingoNoCalledorMarkedNumbers() {
+        BingoGameManager manager = new BingoGameManager();
+        try {
+            BingoCard card = manager.generateCard();
+            manager.startGame();
+            assertFalse(manager.validateBingo(card), "Should not have Bingo without marked line");
+        }
+        catch (Exception ex)  {
+            assertTrue(false, "Unexpected exception thrown");
+        }
+    }
+
     // Forces game to call the numbers provided and returns true if the bingo card 
     private Boolean testCard(BingoGameManager manager, BingoCard card, int n1, int n2, int n3, int n4, int n5) throws Exception {
         try {
