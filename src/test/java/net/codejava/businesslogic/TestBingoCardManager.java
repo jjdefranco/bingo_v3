@@ -81,7 +81,8 @@ public class TestBingoCardManager {
         manager.setTestCard("10,9,8,7,6,29,28,27,26,25,44,43,42,41,40,59,58,57,56,55,74,73,72,71,70");
         BingoCard card = manager.generateCard();
         int[] numbers = card.getCardNumbers();
-        assertTrue(numbers[0]==10, "First element should have been 10");
+        int[] expectedNumbers = new int[] {10,9,8,7,6,29,28,27,26,25,44,43,42,41,40,59,58,57,56,55,74,73,72,71,70};
+        assertArrayEquals(expectedNumbers, numbers, "Did not assign card numbers as expected");
         card = manager.generateCard();
         numbers = card.getCardNumbers();
         assertTrue((numbers[0]!=10 && numbers[1]!=9), "Card should be from test string");
